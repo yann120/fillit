@@ -12,7 +12,10 @@
 
 int		is_valid(char *filepath)
 {
-	// while get next line
+	int		fd;
+	
+	fd = open(filepath, O_RDONLY);
+	while (get_next_line())
 		// if invalid 
 			// return 0
 	(void)filepath; //for testing, to be removed
