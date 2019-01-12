@@ -1,9 +1,3 @@
-class String
-  def blocks
-    self.split("\n\n")
-  end
-end
-
 class Validator
   def initialize(filepath)
     @filepath = filepath
@@ -11,12 +5,13 @@ class Validator
   end
 
   def validate
-    has_at_least_one_piece &&
-    valid_number_of_lines &&
-    valid_chars &&
-    valid_width &&
-    valid_number_of_chars &&
-    valid_shapes
+    is_valid = has_at_least_one_piece &&
+      valid_number_of_lines &&
+      valid_chars &&
+      valid_width &&
+      valid_number_of_chars &&
+      valid_shapes
+    return is_valid, @filetext
   end
 
   private
@@ -74,7 +69,7 @@ class Validator
     @filetext.blocks.each do |block_str|
       # read block into an array of arrays
       hashtags_with_two_neighbors = 0
-      block = block_str.split("\n").each_with_object([]) { |block_line, b| b << block_line.chars }
+      block = block_string_to_array(block_str)
       for i in 0..3
         for j in 0..3
           if block[i][j] == "#"
