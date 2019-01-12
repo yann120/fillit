@@ -6,7 +6,7 @@
 /*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 21:53:14 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/11 18:51:57 by ypetitje         ###   ########.fr       */
+/*   Updated: 2019/01/12 16:49:55 by ypetitje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,3 +34,10 @@ int		main(int argc, char **argv)
 		print_errors(1);
 	return (0);
 }
+
+// tableau = read_file(filepath)
+// validate(tableau)
+	// pieces = translate(tableau)
+	// fillit(pieces)
+// sinon
+	// error
