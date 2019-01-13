@@ -6,10 +6,12 @@ def set_piece(grid, i, j, piece, char)
 end
 
 def print_grid(grid)
-  puts "Voilà! C'est fini!"
   puts "Vous avez placé #{grid.flatten.join.chars.uniq.size - 1} pièces."
+  puts ""
 
   grid.each do |line|
     puts line.join
   end
+
+  puts ""
 end

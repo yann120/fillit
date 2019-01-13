@@ -4,8 +4,8 @@ require_relative "helper"
 require_relative "fillit"
 
 filepath = ARGV[0]
-
-file_is_valid, filetext = Validator.new(filepath).validate
+filetext = File.read(filepath)
+file_is_valid = validate(filetext)
 
 if file_is_valid
   pieces = read_pieces_from_file(filetext)
