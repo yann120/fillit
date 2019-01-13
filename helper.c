@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.c                                           :+:      :+:    :+:   */
+/*   helper.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ypetitje <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 22:04:17 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/10 22:07:20 by ypetitje         ###   ########.fr       */
+/*   Updated: 2019/01/12 20:08:14 by ypetitje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		starting_grid_size(int number_of_pieces)
+int		starting_grid_size(int n)
 {
 	int	i;
 
 	i = 2;
-	while (i * i < 4 * number_of_pieces)
+	while (i * i < 4 * n)
 		i++;
 	return (i);
 }

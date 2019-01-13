@@ -1,14 +1,12 @@
-require_relative "validation"
-require_relative "pieces"
-require_relative "helper"
+def fillit(pieces)
+  grid_size = minimal_grid_size(pieces.count)
+  puts grid_size, pieces.count
+end
 
-filepath = ARGV[0]
-
-file_is_valid, filetext = Validator.new(filepath).validate
-
-if file_is_valid
-  pieces = read_pieces_from_file(filetext)
-  pieces.each { |piece| puts piece.to_s}
-else
-  print_error(:usage)
+def minimal_grid_size(n)
+  grid_size = 2
+  while (grid_size ** 2 < n * 4)
+    grid_size += 1
+  end
+  return grid_size
 end
