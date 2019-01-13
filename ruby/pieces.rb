@@ -13,9 +13,11 @@ def read_pieces_from_file(filetext)
 end
 
 def create_piece_from_block(block_str, piece_index)
-  piece = { 
-    letter: letter_from_index(piece_index), 
-    coordinates: [],    # [[0,0], [1,0], ...] 
+  piece = {
+    letter: letter_from_index(piece_index),
+    coordinates: [],
+    height: 0,
+    width: 0,
   }
 
   block = block_string_to_array(block_str)
@@ -29,10 +31,22 @@ def create_piece_from_block(block_str, piece_index)
   end
 
   piece = set_axis_to_zero(piece)
+  piece[:height] = calculate_height(piece)
+  piece[:width] = calculate_width(piece)
 
   return piece
 end
 
 def letter_from_index(index)
   return ("A".ord + index).chr
+end
+
+def calculate_height(piece)
+  points = piece[:coordinates].map(&:first)
+  (points.max - points.min).abs + 1
+end
+
+def calculate_width(piece)
+  points = piece[:coordinates].map(&:last)
+  (points.max - points.min).abs + 1
 end

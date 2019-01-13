@@ -28,3 +28,21 @@ def set_axis_to_zero(piece)
 
   return piece
 end
+
+def create_grid(grid_size)
+  grid = []
+  for i in 0...grid_size
+    line = []
+    for j in 0...grid_size
+      line << "."
+    end
+    grid << line
+  end
+  return grid
+end
+
+def swap(arr, i, j)
+  temp = arr[i]
+  arr[i] = arr[j]
+  arr[j] = temp
+end
