@@ -2,9 +2,11 @@ require_relative "grid"
 
 def fillit(pieces)
   grid_size = minimal_grid_size(pieces.count)
+  puts "Current grid size: #{grid_size}"
 
   grid = create_grid(grid_size)
   while !fit_pieces_inside_grid(grid, pieces)
+    puts "Current grid size: #{grid_size}"
     grid_size += 1
     grid = create_grid(grid_size)
   end
