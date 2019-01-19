@@ -1,7 +1,5 @@
 def fillit(pieces)
   grid_size = minimal_grid_size(pieces.count)
-  puts "Current grid size: #{grid_size}"
-
   grid = create_grid(grid_size)
   while !fit_pieces_inside_grid(grid, pieces)
     puts "Current grid size: #{grid_size}"
@@ -28,6 +26,10 @@ def fit_pieces_inside_grid(grid, pieces)
         else
           set_piece(grid, i, j, piece, ".")
         end
+      end
+      if VERBOSE == "ON"
+        system "clear"
+        print_grid(grid)
       end
       j += 1
     end

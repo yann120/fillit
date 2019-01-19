@@ -6,10 +6,7 @@ def set_piece(grid, i, j, piece, char)
 end
 
 def print_grid(grid)
-  puts "Vous avez placé #{grid.flatten.join.chars.uniq.size - 1} pièces."
-  puts ""
   grid.each { |line| puts line.join }
-  puts ""
 end
 
 def minimal_grid_size(n)
