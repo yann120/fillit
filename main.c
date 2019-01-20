@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 21:53:14 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/20 15:57:44 by ypetitje         ###   ########.fr       */
+/*   Updated: 2019/01/20 18:14:56 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		main(int argc, char **argv)
 	filetext = read_file(argv[1]);
 	if (argc == 2)
 	{
-		if (file_is_valid(argv[1]))
+		if (file_is_valid(filetext))
 		{
 			read_pieces_from_file(pieces, filetext);
 			fillit(pieces);

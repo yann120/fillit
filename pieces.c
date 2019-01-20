@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pieces.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/19 17:00:03 by fwuensch          #+#    #+#             */
-/*   Updated: 2019/01/20 16:03:06 by ypetitje         ###   ########.fr       */
+/*   Updated: 2019/01/20 17:47:35 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ int			calculate_height(t_piece piece)
 	int		min;
 	int		i;
 
+	i = 0;
 	min = 10;
 	max = -10;
 	while (i < 4)
@@ -97,6 +98,7 @@ int			calculate_width(t_piece piece)
 	int		min;
 	int		i;
 
+	i = 0;
 	min = 10;
 	max = -10;
 	while (i < 4)
@@ -114,7 +116,8 @@ int		count_pieces(t_piece *pieces)
 {
 	int		i;
 
-	while (pieces[i].letter != NULL)
+	i = 0;
+	while (pieces[i].letter != '\0')	// TODO: review
 	{
 		i++;
 	}

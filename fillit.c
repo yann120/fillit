@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 22:07:37 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/20 16:02:37 by ypetitje         ###   ########.fr       */
+/*   Updated: 2019/01/20 17:54:35 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	fillit(t_piece *pieces)
 {
-	int		i;
 	int		grid_size;
 	char	**grid;
 
@@ -36,8 +35,9 @@ int		fit_pieces_inside_grid(char **grid, t_piece *pieces, int grid_size, int sta
 	t_piece piece;
 
 	piece = pieces[starting_piece_index];
-	if (piece.letter == NULL)
+	if (piece.letter == '\0')   // TODO: REVIEW
 		return (1);
+    i = 0;
 	while (i < grid_size - piece.height + 1)
 	{
 		j = 0;

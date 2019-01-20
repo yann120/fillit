@@ -13,7 +13,9 @@ def valid_chars(filetext)
   i = 1
   filetext.each_line do |line|
     if i % 5 == 0
-      return false if line != "\n"
+      if line != "\n"
+        return false
+      end
     else
       line.chars.each { |char| return false unless ["\n", "#", "."].include? char }
     end
