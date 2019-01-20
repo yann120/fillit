@@ -6,13 +6,13 @@
 /*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 22:04:17 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/20 18:04:39 by fwuensch         ###   ########.fr       */
+/*   Updated: 2019/01/20 18:19:37 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char	*read_file(char *filepath)
+char	*read_file(char *filepath, char **tab)
 {
 	char	*line;
 	int		fd;
@@ -25,6 +25,7 @@ char	*read_file(char *filepath)
 	fd = open(filepath, O_RDONLY);
 	while (get_next_line(fd, &line) > 0 && i < 548)
 	{
+        tab[i] = ft_strdup(line);
 		filetext = ft_strcat(filetext, line);
 		filetext = ft_strcat(filetext, "\n");
 		ft_memdel((void **)&line);

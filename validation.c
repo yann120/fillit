@@ -6,24 +6,28 @@
 /*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 22:02:28 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/20 18:15:34 by fwuensch         ###   ########.fr       */
+/*   Updated: 2019/01/20 19:24:07 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		file_is_valid(char *filetext)
+int		file_is_valid(char *filetext, char **lines)
 {
 	int		is_valid;
-	char	**lines;
 
-	lines = ft_strsplit(filetext, '\n');
-	is_valid = has_at_least_one_piece(lines) &&
+	// printf("has_at_least_one_piece: %d\n", has_at_least_one_piece(lines));
+	// printf("valid_number_of_lines: %d\n", valid_number_of_lines(lines));
+	// printf("valid_chars: %d\n", valid_chars(lines));
+	// printf("valid_width: %d\n", valid_width(lines));
+	// printf("valid_number_of_chars: %d\n", valid_number_of_chars(lines));
+
+	is_valid = (has_at_least_one_piece(lines) &&
 		valid_number_of_lines(lines) &&
 		valid_chars(lines) &&
 		valid_width(lines) &&
-		valid_number_of_chars(lines);
-		// valid_shapes(filetext);
+		valid_number_of_chars(lines));
+	filetext[0] = filetext[0];
 	return (is_valid);
 }
 
@@ -63,7 +67,7 @@ int		valid_chars(char **lines)
 	{
 		if (i % 5 == 0)
 		{
-			if (ft_strcmp(lines[curr_line], "\n") != 0)
+			if (ft_strlen(lines[curr_line]) != 0)
 				return (0);
 		}
 		else
@@ -71,11 +75,13 @@ int		valid_chars(char **lines)
 			j = 0;
 			while (lines[curr_line][j])
 			{
-				if (lines[curr_line][j] != '\n' && lines[curr_line][j] != '.' && lines[curr_line][j] != '#')
+				if (lines[curr_line][j] != '.' && lines[curr_line][j] != '#')
 					return (0);
+				j++;
 			}
 		}
 		i++;
+		curr_line++;
 	}
 	return (1);
 }
@@ -91,15 +97,16 @@ int		valid_width(char **lines)
 	{
 		if (i % 5 == 0)
 		{
-			if (ft_strlen(lines[curr_line]) != 1)
+			if (ft_strlen(lines[curr_line]) != 0)
 				return (0);
 		}
 		else
 		{
-			if (ft_strlen(lines[curr_line]) != 5)
+			if (ft_strlen(lines[curr_line]) != 4)
 				return (0);
 		}
 		i++;
+		curr_line++;
 	}
 	return (1);
 }
@@ -130,6 +137,7 @@ int		valid_number_of_chars(char **lines)
 				hashtags++;
 			if (lines[curr_line][j] == '.')
 				points++;
+			j++;
 		}
 		if (i % 5 == 4)
 		{
@@ -137,6 +145,7 @@ int		valid_number_of_chars(char **lines)
 				return (0);
 		}
 		i++;
+		curr_line++;
 	}
 	return (1);
 }

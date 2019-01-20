@@ -6,7 +6,7 @@
 /*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 21:53:14 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/20 18:14:56 by fwuensch         ###   ########.fr       */
+/*   Updated: 2019/01/20 19:38:11 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,17 @@ void	print_error(int error_number)
 int		main(int argc, char **argv)
 {
 	char	*filetext;
-	t_piece pieces[26];
+    char    *tab[548];
+	t_piece pieces[26 * 21 + 1 + 1];
 
-	filetext = read_file(argv[1]);
+	filetext = read_file(argv[1], tab);
 	if (argc == 2)
 	{
-		if (file_is_valid(filetext))
+		if (file_is_valid(filetext, tab))
 		{
 			read_pieces_from_file(pieces, filetext);
+            ft_putnbr(pieces[1].height);
+            ft_putchar('\n');
 			fillit(pieces);
 		}
 		else

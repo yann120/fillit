@@ -6,7 +6,7 @@
 /*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/26 09:50:09 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/20 17:59:06 by fwuensch         ###   ########.fr       */
+/*   Updated: 2019/01/20 18:23:54 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ void	fillit(t_piece *pieces);
 int		fit_pieces_inside_grid(char **grid, t_piece *pieces, int grid_size, int starting_piece_index);
 
 // helper
-char	*read_file(char *filepath);
+char	*read_file(char *filepath, char **tab);
 
 // validation
-int		file_is_valid(char *filetext);
+int		file_is_valid(char *filetext, char **lines);
 int		has_at_least_one_piece(char **lines);
 int		valid_number_of_lines(char **lines);
 int		valid_chars(char **lines);
