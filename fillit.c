@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 22:07:37 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/19 18:55:49 by fwuensch         ###   ########.fr       */
+/*   Updated: 2019/01/20 14:56:09 by ypetitje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,13 @@ void	fillit(t_piece *pieces)
 		grid_size += 1;
 		reset_grid(grid);
 	}
-	print_grid(grid, grid_size)
+	print_grid(grid, grid_size);
 }
 
 int		fit_pieces_inside_grid(char **grid, t_piece *pieces, int grid_size, int starting_piece_index)
 {
 	int i;
+	int j;
 	t_piece piece;
 
 	piece = pieces[starting_piece_index];
@@ -50,7 +51,7 @@ int		fit_pieces_inside_grid(char **grid, t_piece *pieces, int grid_size, int sta
 				}
 				else
 				{
-					set_piece(grid, i, j, piece, '.')
+					set_piece(grid, i, j, piece, '.');
 				}
 			}
 			j++;

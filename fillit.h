@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/26 09:50:09 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/19 18:07:56 by fwuensch         ###   ########.fr       */
+/*   Updated: 2019/01/20 15:00:39 by ypetitje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 # define FILLIT_H
 # include <stdlib.h>
 # include <unistd.h>
+# include <fcntl.h>
 # include "libft.h"
 
-GRID_MAX = 30
+GRID_MAX = 30;
 
 int		is_valid(char *filepath);
 

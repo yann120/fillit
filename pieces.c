@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pieces.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/19 17:00:03 by fwuensch          #+#    #+#             */
-/*   Updated: 2019/01/19 18:44:12 by fwuensch         ###   ########.fr       */
+/*   Updated: 2019/01/20 14:58:38 by ypetitje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ t_piece		create_piece_from_block(char *block_str, int piece_index)
 			}
 		}
 	}
-	piece->height = calculate_height(piece)
-	piece->width = calculate_width(piece)
+	piece->height = calculate_height(piece);
+	piece->width = calculate_width(piece);
 	return (piece);
 }
 

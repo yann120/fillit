@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   grid.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/19 18:35:03 by fwuensch          #+#    #+#             */
-/*   Updated: 2019/01/19 18:44:00 by fwuensch         ###   ########.fr       */
+/*   Updated: 2019/01/20 14:57:54 by ypetitje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int		minimal_grid_size(n)
 	int grid_size;
 
 	grid_size = 2;
-	while (grid_size ** 2 < n * 4)
+	while (grid_size * 2 < n * 4)
 	{
 		grid_size++;
 	}
@@ -44,6 +44,7 @@ int		minimal_grid_size(n)
 char		**create_grid(void)
 {
 	char	**grid;
+	int i;
 
 	grid = (char**)malloc(sizeof(char*) * GRID_MAX);
 	if (grid == NULL)
@@ -67,7 +68,7 @@ void		reset_grid(char **grid)
 	{
 		while (j < GRID_MAX)
 		{
-			grid[i][j] = '.'
+			grid[i][j] = '.';
 			j++;
 		}
 		i++;
