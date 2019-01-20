@@ -6,7 +6,7 @@
 /*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 21:53:14 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/20 14:58:22 by ypetitje         ###   ########.fr       */
+/*   Updated: 2019/01/20 15:57:44 by ypetitje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,8 @@ void	print_error(int error_number)
 int		main(int argc, char **argv)
 {
 	char	*filetext;
-	t_piece *pieces;
+	t_piece pieces[26];
 
-	pieces = (t_piece *)malloc(sizeof(t_piece) * 26);
 	filetext = read_file(argv[1]);
 	if (argc == 2)
 	{
@@ -39,7 +38,6 @@ int		main(int argc, char **argv)
 			print_error(0);
 			return (-1);
 		}
-		// fillit(argv[1]);
 	}
 	else
 	{

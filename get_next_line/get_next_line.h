@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/26 09:50:09 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/20 16:10:42 by ypetitje         ###   ########.fr       */
+/*   Created: 2018/11/29 15:50:33 by fwuensch          #+#    #+#             */
+/*   Updated: 2018/12/12 20:01:17 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+
 # include <stdlib.h>
 # include <unistd.h>
-# include <fcntl.h>
-# include "libft.h"
+# include <limits.h>
 
-int GRID_MAX = 30;
+# include "libft/libft.h"
 
-int		is_valid(char *filepath);
-int 	read_file(char **table, char *filepath);
+# define BUFF_SIZE 32
 
-typedef	struct		s_piece {
-	int				coord[4][2];
-	char			letter;
-	int				height;
-	int				width;
-}					t_piece;
+int		get_next_line(const int fd, char **line);
 
 #endif

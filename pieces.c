@@ -6,7 +6,7 @@
 /*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/19 17:00:03 by fwuensch          #+#    #+#             */
-/*   Updated: 2019/01/20 14:58:38 by ypetitje         ###   ########.fr       */
+/*   Updated: 2019/01/20 16:03:06 by ypetitje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ t_piece		create_piece_from_block(char *block_str, int piece_index)
 	int			j_diff;
 	int			coord_index;
 
-	piece->letter = 'A' + piece_index;
+	piece.letter = 'A' + piece_index;
 	i = 0;
 	j = 0;
 	coord_index = 0;
@@ -61,14 +61,14 @@ t_piece		create_piece_from_block(char *block_str, int piece_index)
 					i_diff = 0 - i;
 					j_diff = 0 - j;
 				}
-				piece->coord[coord_index][0] = i + i_diff;
-				piece->coord[coord_index][1] = j + j_diff;
+				piece.coord[coord_index][0] = i + i_diff;
+				piece.coord[coord_index][1] = j + j_diff;
 				coord_index++;
 			}
 		}
 	}
-	piece->height = calculate_height(piece);
-	piece->width = calculate_width(piece);
+	piece.height = calculate_height(piece);
+	piece.width = calculate_width(piece);
 	return (piece);
 }
 
@@ -82,10 +82,10 @@ int			calculate_height(t_piece piece)
 	max = -10;
 	while (i < 4)
 	{
-		if (piece->coord[i][0] < min)
-			min = piece->coord[i][0];
-		if (piece->coord[i][0] > max)
-			max = piece->coord[i][0];
+		if (piece.coord[i][0] < min)
+			min = piece.coord[i][0];
+		if (piece.coord[i][0] > max)
+			max = piece.coord[i][0];
 		i++;
 	}
 	return (max - min + 1);
@@ -101,10 +101,10 @@ int			calculate_width(t_piece piece)
 	max = -10;
 	while (i < 4)
 	{
-		if (piece->coord[i][1] < min)
-			min = piece->coord[i][1];
-		if (piece->coord[i][1] > max)
-			max = piece->coord[i][1];
+		if (piece.coord[i][1] < min)
+			min = piece.coord[i][1];
+		if (piece.coord[i][1] > max)
+			max = piece.coord[i][1];
 		i++;
 	}
 	return (max - min + 1);
@@ -114,7 +114,7 @@ int		count_pieces(t_piece *pieces)
 {
 	int		i;
 
-	while (pieces[i] != NULL)
+	while (pieces[i].letter != NULL)
 	{
 		i++;
 	}
