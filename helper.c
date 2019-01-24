@@ -6,13 +6,13 @@
 /*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 22:04:17 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/24 21:57:30 by fwuensch         ###   ########.fr       */
+/*   Updated: 2019/01/24 22:15:05 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char	*read_file(char *filepath, char **tab)
+char		*read_file(char *filepath, char **tab)
 {
 	char	*line;
 	int		fd;
@@ -35,18 +35,18 @@ char	*read_file(char *filepath, char **tab)
 	return (filetext);
 }
 
-void	free_tab(char **tab)
+void		free_tab(char **tab)
 {
-	int i;
+	int		i;
 
 	i = 0;
 	while (tab[i] != NULL)
 		free(tab[i++]);
 }
 
-void	free_super_grid(char **grid)
+void		free_super_grid(char **grid)
 {
-	int i;
+	int		i;
 
 	i = 0;
 	while (i < GRID_MAX)
@@ -55,4 +55,34 @@ void	free_super_grid(char **grid)
 		i++;
 	}
 	free(grid);
+}
+
+void		reset_grid(char **grid)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	while (i < GRID_MAX)
+	{
+		j = 0;
+		while (j < GRID_MAX)
+		{
+			grid[i][j] = '.';
+			j++;
+		}
+		i++;
+	}
+}
+
+int			minimal_grid_size(int n)
+{
+	int		grid_size;
+
+	grid_size = 2;
+	while (grid_size * grid_size < n * 4)
+	{
+		grid_size++;
+	}
+	return (grid_size);
 }

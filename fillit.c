@@ -6,7 +6,7 @@
 /*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 22:07:37 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/24 21:40:04 by fwuensch         ###   ########.fr       */
+/*   Updated: 2019/01/24 22:14:30 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,31 +29,27 @@ void	fillit(t_piece *pieces)
 	free_super_grid(grid);
 }
 
-int		fit_pieces_inside_grid(char **grid, t_piece *pieces, int grid_size, int starting_piece_index)
+int		fit_pieces_inside_grid(char **grid, t_piece *pieces, int size, int idx)
 {
-	int i;
-	int j;
+	int		i;
+	int		j;
 	t_piece piece;
 
-	piece = pieces[starting_piece_index];
+	piece = pieces[idx];
 	if (piece.height == 0)
 		return (1);
 	i = 0;
-	while (i < grid_size - piece.height + 1)
+	while (i < size - piece.height + 1)
 	{
 		j = 0;
-		while (j < grid_size - piece.width + 1)
+		while (j < size - piece.width + 1)
 		{
 			if (place_piece(grid, piece, i, j))
 			{
-				if (fit_pieces_inside_grid(grid, pieces, grid_size, starting_piece_index + 1))
-				{
+				if (fit_pieces_inside_grid(grid, pieces, size, idx + 1))
 					return (1);
-				}
 				else
-				{
-					set_piece(grid, i, j, piece, '.');
-				}
+					remove_piece(grid, i, j, piece);
 			}
 			j++;
 		}

@@ -6,18 +6,17 @@
 /*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/19 17:00:03 by fwuensch          #+#    #+#             */
-/*   Updated: 2019/01/24 21:12:46 by fwuensch         ###   ########.fr       */
+/*   Updated: 2019/01/24 22:32:34 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-// CA MARCHE, NE TOUCHEZ PAS
 t_piece		*read_pieces_from_file(t_piece *pieces, char *filetext)
 {
-	int i;
-	int piece_index;
-	char blocks[26][20];
+	int		i;
+	int		piece_index;
+	char	blocks[26][20];
 
 	i = 0;
 	piece_index = -1;
@@ -29,53 +28,40 @@ t_piece		*read_pieces_from_file(t_piece *pieces, char *filetext)
 			blocks[piece_index][(i % 21) - 1] = '\0';
 		}
 		else
-		{
 			blocks[piece_index][(i % 21) - 1] = filetext[i - 1];
-		}
 		i++;
 	}
 	i = 0;
 	while (i <= piece_index)
 	{
-		pieces[i] = create_piece_from_block(blocks[i], i);
+		pieces[i] = create_piece_from_block(blocks[i], i, -1, 0);
 		i++;
 	}
-	return pieces;
+	return (pieces);
 }
 
-// CA MARCHE, NE TOUCHEZ PAS
-t_piece		create_piece_from_block(char *block_str, int piece_index)
+t_piece		create_piece_from_block(char *block, int piece_index, int i, int j)
 {
-	t_piece		piece;
-	int			i;
-	int			j;
-	int			i_diff;
-	int			j_diff;
-	int			coord_index;
+	t_piece	piece;
+	int		i_diff;
+	int		j_diff;
+	int		coord_index;
 
 	piece.letter = 'A' + piece_index;
-	i = 0;
-	j = 0;
 	coord_index = 0;
-	while (i < 4)
+	while (++i < 4)
 	{
-		j = 0;
+		j = -1;
 		while (j < 4)
 		{
-			if (block_str[i * 5 + j] == '#')
+			if (block[i * 5 + ++j] == '#')
 			{
-				if (coord_index == 0)
-				{
-					i_diff = 0 - i;
+				if (coord_index == 0 && (i_diff = 0 - i) == 0 - i)
 					j_diff = 0 - j;
-				}
 				piece.coord[coord_index][0] = i + i_diff;
-				piece.coord[coord_index][1] = j + j_diff;
-				coord_index++;
+				piece.coord[coord_index++][1] = j + j_diff;
 			}
-			j++;
 		}
-		i++;
 	}
 	piece.height = calculate_height(piece);
 	piece.width = calculate_width(piece);
@@ -122,8 +108,7 @@ int			calculate_width(t_piece piece)
 	return (max - min + 1);
 }
 
-// NE TOUCHEZ PAS
-int		count_pieces(t_piece *pieces)
+int			count_pieces(t_piece *pieces)
 {
 	int		i;
 
