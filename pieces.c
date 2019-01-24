@@ -6,7 +6,7 @@
 /*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/19 17:00:03 by fwuensch          #+#    #+#             */
-/*   Updated: 2019/01/24 20:31:25 by fwuensch         ###   ########.fr       */
+/*   Updated: 2019/01/24 21:12:46 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,12 +122,13 @@ int			calculate_width(t_piece piece)
 	return (max - min + 1);
 }
 
+// NE TOUCHEZ PAS
 int		count_pieces(t_piece *pieces)
 {
 	int		i;
 
 	i = 0;
-	while (pieces[i].letter != '\0')	// TODO: review
+	while (pieces[i].height != 0)
 	{
 		i++;
 	}

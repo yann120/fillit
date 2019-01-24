@@ -6,7 +6,7 @@
 /*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 22:07:37 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/20 17:54:35 by fwuensch         ###   ########.fr       */
+/*   Updated: 2019/01/24 21:15:20 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ int		fit_pieces_inside_grid(char **grid, t_piece *pieces, int grid_size, int sta
 	t_piece piece;
 
 	piece = pieces[starting_piece_index];
-	if (piece.letter == '\0')   // TODO: REVIEW
+	if (piece.height == 0)
 		return (1);
-    i = 0;
+	i = 0;
 	while (i < grid_size - piece.height + 1)
 	{
 		j = 0;

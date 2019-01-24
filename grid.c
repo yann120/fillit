@@ -6,13 +6,13 @@
 /*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/19 18:35:03 by fwuensch          #+#    #+#             */
-/*   Updated: 2019/01/20 17:57:40 by fwuensch         ###   ########.fr       */
+/*   Updated: 2019/01/24 21:15:16 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	print_grid(char **grid, int grid_size)
+void		print_grid(char **grid, int grid_size)
 {
 	int		i;
 	int		j;
@@ -31,12 +31,12 @@ void	print_grid(char **grid, int grid_size)
 	}
 }
 
-int		minimal_grid_size(int n)
+int			minimal_grid_size(int n)
 {
 	int grid_size;
 
 	grid_size = 2;
-	while (grid_size * 2 < n * 4)
+	while (grid_size * grid_size < n * 4)
 	{
 		grid_size++;
 	}
@@ -55,8 +55,9 @@ char		**create_grid(void)
 	while (i < GRID_MAX)
 	{
 		grid[i] = (char*)malloc(sizeof(char) * GRID_MAX);
-		if (grid[1] == NULL)
+		if (grid[i] == NULL)
 			return (NULL);
+		i++;
 	}
 	return (grid);
 }
@@ -87,6 +88,7 @@ void		set_piece(char **grid, int i, int j, t_piece piece, char chr)
 	while (x < 4)
 	{
 		grid[i + piece.coord[x][0]][j + piece.coord[x][1]] = chr;
+		x++;
 	}
 }
 
@@ -99,6 +101,7 @@ int		place_piece(char **grid, t_piece piece, int i, int j)
 	{
 		if (grid[i + piece.coord[x][0]][j + piece.coord[x][1]] != '.')
 			return (0);
+		x++;
 	}
 	set_piece(grid, i, j, piece, piece.letter);
 	return (1);
