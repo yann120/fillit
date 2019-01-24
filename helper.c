@@ -6,7 +6,7 @@
 /*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 22:04:17 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/20 18:19:37 by fwuensch         ###   ########.fr       */
+/*   Updated: 2019/01/24 21:57:30 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,36 @@ char	*read_file(char *filepath, char **tab)
 	i = 0;
 	line = NULL;
 	fd = open(filepath, O_RDONLY);
-	while (get_next_line(fd, &line) > 0 && i < 548)
+	while (get_next_line(fd, &line) > 0 && i < MAX_LINES)
 	{
-        tab[i] = ft_strdup(line);
+		tab[i] = ft_strdup(line);
 		filetext = ft_strcat(filetext, line);
 		filetext = ft_strcat(filetext, "\n");
-		ft_memdel((void **)&line);
+		free(line);
 		i++;
 	}
 	free(line);
 	return (filetext);
+}
+
+void	free_tab(char **tab)
+{
+	int i;
+
+	i = 0;
+	while (tab[i] != NULL)
+		free(tab[i++]);
+}
+
+void	free_super_grid(char **grid)
+{
+	int i;
+
+	i = 0;
+	while (i < GRID_MAX)
+	{
+		free(grid[i]);
+		i++;
+	}
+	free(grid);
 }

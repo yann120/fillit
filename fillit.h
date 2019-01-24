@@ -6,7 +6,7 @@
 /*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/26 09:50:09 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/24 20:59:32 by fwuensch         ###   ########.fr       */
+/*   Updated: 2019/01/24 21:50:12 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "libft.h"
 # include "get_next_line/get_next_line.h"
 
+# define MAX_LINES 548
 # define GRID_MAX 30
 
 typedef	struct		s_piece {
@@ -33,6 +34,8 @@ int		fit_pieces_inside_grid(char **grid, t_piece *pieces, int grid_size, int sta
 
 // helper
 char	*read_file(char *filepath, char **tab);
+void	free_super_grid(char **grid);
+void	free_tab(char **tab);
 
 // validation
 int		file_is_valid(char *filetext, char **lines);

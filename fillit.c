@@ -6,7 +6,7 @@
 /*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 22:07:37 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/24 21:15:20 by fwuensch         ###   ########.fr       */
+/*   Updated: 2019/01/24 21:40:04 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	fillit(t_piece *pieces)
 		reset_grid(grid);
 	}
 	print_grid(grid, grid_size);
+	free_super_grid(grid);
 }
 
 int		fit_pieces_inside_grid(char **grid, t_piece *pieces, int grid_size, int starting_piece_index)

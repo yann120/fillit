@@ -6,7 +6,7 @@
 /*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 21:53:14 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/24 20:30:54 by fwuensch         ###   ########.fr       */
+/*   Updated: 2019/01/24 21:49:19 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	print_error(int error_number)
 int		main(int argc, char **argv)
 {
 	char	*filetext;
-	char    *tab[548];
+	char    *tab[MAX_LINES];
 	t_piece pieces[26 * 21 + 1 + 1];
 
 	filetext = read_file(argv[1], tab);
@@ -37,6 +37,7 @@ int		main(int argc, char **argv)
 		else
 		{
 			print_error(0);
+			free(filetext);
 			return (-1);
 		}
 	}
@@ -44,5 +45,7 @@ int		main(int argc, char **argv)
 	{
 		print_error(1);
 	}
+	free(filetext);
+	free_tab(tab);
 	return (0);
 }
