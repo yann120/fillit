@@ -6,16 +6,16 @@
 #    By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/10 21:44:33 by ypetitje          #+#    #+#              #
-#    Updated: 2019/01/26 14:23:17 by ypetitje         ###   ########.fr        #
+#    Updated: 2019/01/26 14:25:28 by ypetitje         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
 
 
-SRC = 	SRC/fillit.c SRC/get_next_line.c SRC/grid.c\
-		SRC/helper.c SRC/main.c SRC/pieces.c\
-		SRC/validation.c
+SRC = 	srcs/fillit.c srcs/get_next_line.c srcs/grid.c\
+		srcs/helper.c srcs/main.c srcs/pieces.c\
+		srcs/validation.c
 
 #OBJ =	SRC/fillit.o SRC/get_next_line.o SRC/grid.o\
 #		SRC/helper.o SRC/main.o SRC/pieces.o\
