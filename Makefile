@@ -6,7 +6,7 @@
 #    By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/10 21:44:33 by ypetitje          #+#    #+#              #
-#    Updated: 2019/01/26 13:20:21 by ypetitje         ###   ########.fr        #
+#    Updated: 2019/01/26 13:36:15 by ypetitje         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	make -C libft
 	gcc -c $(CFLAGS) $(SRC)
+	rm *.o
 	gcc -o $(NAME) $(OBJ) $(LIBFT)
 
 clean:
