@@ -6,7 +6,7 @@
 /*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 21:53:14 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/26 16:03:56 by ypetitje         ###   ########.fr       */
+/*   Updated: 2019/01/26 16:08:25 by ypetitje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int			main(int argc, char **argv)
 		{
 			read_pieces_from_file(pieces, filetext);
 			fillit(pieces);
+			free_stuff(filetext, tab, 0);
 		}
 		else
 		{
@@ -66,6 +67,5 @@ int			main(int argc, char **argv)
 	}
 	else
 		print_error(1);
-	free_stuff(filetext, tab, 0);
 	return (0);
 }
