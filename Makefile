@@ -6,7 +6,7 @@
 #    By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/10 21:44:33 by ypetitje          #+#    #+#              #
-#    Updated: 2019/01/26 13:36:15 by ypetitje         ###   ########.fr        #
+#    Updated: 2019/01/26 14:23:17 by ypetitje         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,20 +17,22 @@ SRC = 	SRC/fillit.c SRC/get_next_line.c SRC/grid.c\
 		SRC/helper.c SRC/main.c SRC/pieces.c\
 		SRC/validation.c
 
-OBJ =	SRC/fillit.o SRC/get_next_line.o SRC/grid.o\
-		SRC/helper.o SRC/main.o SRC/pieces.o\
-		SRC/validation.o
+#OBJ =	SRC/fillit.o SRC/get_next_line.o SRC/grid.o\
+#		SRC/helper.o SRC/main.o SRC/pieces.o\
+#		SRC/validation.o
 CFLAGS = -Wall -Wextra -Werror
-# OBJ = $(SRC:.c=.o)
+OBJ = $(SRC:.c=.o)
 LIBFT = libft/libft.a
+CC = gcc
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	make -C libft
-	gcc -c $(CFLAGS) $(SRC)
-	rm *.o
 	gcc -o $(NAME) $(OBJ) $(LIBFT)
+
+#%.o: %.c
+#	$(CC) -c $(CFLAGS) $^ $%
 
 clean:
 	rm -f $(OBJ)

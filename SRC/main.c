@@ -6,7 +6,7 @@
 /*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 21:53:14 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/26 14:03:32 by ypetitje         ###   ########.fr       */
+/*   Updated: 2019/01/26 14:15:22 by ypetitje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int			main(int argc, char **argv)
 	t_piece	pieces[26 * 21 + 1 + 1];
 
 	filetext = read_file(argv[1], tab);
+	// printf("%s\n", filetext)
 	if (argc == 2)
 	{
 		if (file_is_valid(filetext, tab))
