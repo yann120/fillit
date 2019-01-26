@@ -6,7 +6,7 @@
 /*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/26 09:50:09 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/26 16:34:59 by ypetitje         ###   ########.fr       */
+/*   Updated: 2019/01/26 16:38:25 by ypetitje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef	struct		s_piece {
 	int				width;
 }					t_piece;
 
-int					file_is_valid(char *filetext, char **lines);
+int					file_is_valid(char **lines);
 void				print_error(int error_number);
 void				free_stuff(char *filetext, char **tab, int print_error_msg);
 

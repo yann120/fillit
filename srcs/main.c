@@ -6,13 +6,13 @@
 /*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 21:53:14 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/26 16:08:25 by ypetitje         ###   ########.fr       */
+/*   Updated: 2019/01/26 16:38:58 by ypetitje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int			file_is_valid(char *filetext, char **lines)
+int			file_is_valid(char **lines)
 {
 	int		is_valid;
 
@@ -21,7 +21,6 @@ int			file_is_valid(char *filetext, char **lines)
 		valid_chars(lines, 0) &&
 		valid_width(lines) &&
 		valid_number_of_chars(lines, 0, 0, 0));
-	filetext[0] = filetext[0];
 	return (is_valid);
 }
 
@@ -50,7 +49,7 @@ int			main(int argc, char **argv)
 	filetext = read_file(argv[1], tab);
 	if (argc == 2)
 	{
-		if (filetext != NULL && file_is_valid(filetext, tab))
+		if (filetext != NULL && file_is_valid(tab))
 		{
 			read_pieces_from_file(pieces, filetext);
 			fillit(pieces);
