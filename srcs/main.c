@@ -6,23 +6,22 @@
 /*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 21:53:14 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/27 17:17:30 by ypetitje         ###   ########.fr       */
+/*   Updated: 2019/01/27 18:06:06 by ypetitje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
 
 int			file_is_valid(char **lines)
 {
 	int		is_valid;
 
-	printf("\nhas_at_least_five_lines: %d\n", has_at_least_five_lines(lines));
-	printf("valid_number_of_lines: %d\n", valid_number_of_lines(lines));
-	printf("valid_chars_and_empty_lines: %d\n", valid_chars_and_empty_lines(lines, 0));
-	printf("valid_width: %d\n", valid_width(lines));
-	printf("valid_number_of_chars: %d\n", valid_number_of_chars(lines, 0, 0, 0));
-	printf("valid_shapes: %d\n\n", valid_shapes(lines));
+	// printf("\nhas_at_least_five_lines: %d\n", has_at_least_five_lines(lines));
+	// printf("valid_number_of_lines: %d\n", valid_number_of_lines(lines));
+	// printf("valid_chars_and_empty_lines: %d\n", valid_chars_and_empty_lines(lines, 0));
+	// printf("valid_width: %d\n", valid_width(lines));
+	// printf("valid_number_of_chars: %d\n", valid_number_of_chars(lines, 0, 0, 0));
+	// printf("valid_shapes: %d\n\n", valid_shapes(lines));
 
 	is_valid = (has_at_least_five_lines(lines) &&
 		valid_number_of_lines(lines) &&

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   grid.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/19 18:35:03 by fwuensch          #+#    #+#             */
-/*   Updated: 2019/01/24 22:22:54 by fwuensch         ###   ########.fr       */
+/*   Updated: 2019/01/27 18:06:31 by ypetitje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,15 +74,23 @@ void		remove_piece(char **grid, int i, int j, t_piece piece)
 	}
 }
 
-int			place_piece(char **grid, t_piece piece, int i, int j)
+int			place_piece(char **grid, t_piece piece, int i, int j, int size)
 {
 	int		x;
+	int		j2;
+	int		i2;
 
 	x = 0;
 	while (x < 4)
 	{
-		if (grid[i + piece.coord[x][0]][j + piece.coord[x][1]] != '.')
+		i2 = i + piece.coord[x][0];
+		j2 = j + piece.coord[x][1];
+		if (i2 < 0 || i2 >= size || j2 < 0 || j2 >= size)
 			return (0);
+		if (grid[i2][j2] != '.')
+		{
+			return (0);
+		}
 		x++;
 	}
 	set_piece(grid, i, j, piece);

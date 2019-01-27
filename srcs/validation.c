@@ -6,7 +6,7 @@
 /*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 22:02:28 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/27 17:19:01 by ypetitje         ###   ########.fr       */
+/*   Updated: 2019/01/27 17:25:59 by ypetitje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,9 +144,9 @@ int			valid_shapes(char **lines)
 				if (lines[curr_block * 5 + i][j] == '#')
 				{
 					if (number_of_neighbors(curr_block, i, j, lines) == 2)
-					{
 						hashtag_with_two_neighbors++;
-					}
+					if (number_of_neighbors(curr_block, i, j, lines) == 3)
+						return (1);
 				}
 				j++;
 			}

@@ -6,7 +6,7 @@
 /*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/26 09:50:09 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/27 17:16:30 by ypetitje         ###   ########.fr       */
+/*   Updated: 2019/01/27 18:02:39 by ypetitje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
+# include <stdio.h>
 # include "get_next_line.h"
 
 # define MAX_LINES 548
@@ -58,6 +59,6 @@ void				print_grid(char **grid, int grid_size);
 char				**create_grid(void);
 void				set_piece(char **grid, int i, int j, t_piece piece);
 void				remove_piece(char **grid, int i, int j, t_piece piece);
-int					place_piece(char **grid, t_piece piece, int i, int j);
+int					place_piece(char **grid, t_piece p, int i, int j, int s);
 
 #endif
