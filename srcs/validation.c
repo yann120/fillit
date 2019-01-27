@@ -6,13 +6,14 @@
 /*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 22:02:28 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/26 16:26:35 by ypetitje         ###   ########.fr       */
+/*   Updated: 2019/01/27 17:19:01 by ypetitje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int			has_at_least_one_piece(char **lines)
+// OK
+int			has_at_least_five_lines(char **lines)
 {
 	int		i;
 
@@ -21,26 +22,30 @@ int			has_at_least_one_piece(char **lines)
 	{
 		i++;
 	}
-	return (i + 1 >= 5);
+	return (i >= 4);
 }
 
+// OK
 int			valid_number_of_lines(char **lines)
 {
 	int		i;
 
 	i = 0;
 	while (lines[i] != NULL)
+	{
 		i++;
+	}
 	return ((i + 1) % 5 == 0);
 }
 
-int			valid_chars(char **lines, int curr_line)
+// OK
+int			valid_chars_and_empty_lines(char **lines, int curr_line)
 {
 	int		i;
 	int		j;
 
 	i = 1;
-	while (lines[curr_line])
+	while (lines[curr_line] != NULL)
 	{
 		if (i % 5 == 0)
 		{
@@ -63,6 +68,7 @@ int			valid_chars(char **lines, int curr_line)
 	return (1);
 }
 
+// OK
 int			valid_width(char **lines)
 {
 	int		i;
@@ -88,6 +94,7 @@ int			valid_width(char **lines)
 	return (1);
 }
 
+// OK
 int			valid_number_of_chars(char **lines, int curr_line, int p, int h)
 {
 	int		i;
@@ -114,4 +121,60 @@ int			valid_number_of_chars(char **lines, int curr_line, int p, int h)
 		curr_line++;
 	}
 	return (1);
+}
+
+// OK
+int			valid_shapes(char **lines)
+{
+	int curr_block;
+	int hashtag_with_two_neighbors;
+	int i;
+	int j;
+
+	curr_block = 0;
+	while (lines[curr_block * 5] != NULL)
+	{
+		hashtag_with_two_neighbors = 0;
+		i = 0;
+		while (i < 4)
+		{
+			j = 0;
+			while (j < 4)
+			{
+				if (lines[curr_block * 5 + i][j] == '#')
+				{
+					if (number_of_neighbors(curr_block, i, j, lines) == 2)
+					{
+						hashtag_with_two_neighbors++;
+					}
+				}
+				j++;
+			}
+			i++;
+		}
+		if (hashtag_with_two_neighbors < 2)
+			return (0);
+		curr_block++;
+	}
+	return (1);
+}
+
+int			number_of_neighbors(int curr_block, int i, int j, char **lines)
+{
+	int number_of_neighbors;
+
+	number_of_neighbors = 0;
+	// gauche
+	if (j - 1 >= 0 && lines[curr_block * 5 + i][j - 1] == '#')
+		number_of_neighbors++;
+	// droite
+	if (j + 1 <= 3 && lines[curr_block * 5 + i][j + 1] == '#')
+		number_of_neighbors++;
+	// haut
+	if (i - 1 >= 0 && lines[curr_block * 5 + i - 1][j] == '#')
+		number_of_neighbors++;
+	// bas
+	if (i + 1 <= 3 && lines[curr_block * 5 + i + 1][j] == '#')
+		number_of_neighbors++;
+	return (number_of_neighbors);
 }

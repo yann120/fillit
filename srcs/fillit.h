@@ -6,7 +6,7 @@
 /*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/26 09:50:09 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/26 16:38:25 by ypetitje         ###   ########.fr       */
+/*   Updated: 2019/01/27 17:16:30 by ypetitje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,21 @@ typedef	struct		s_piece {
 
 int					file_is_valid(char **lines);
 void				print_error(int error_number);
-void				free_stuff(char *filetext, char **tab, int print_error_msg);
+void				free_stuff(char *filetext, char **lines, int print_error_msg);
 
-char				*read_file(char *filepath, char **tab);
-void				free_tab(char **tab);
+char				*read_file(char *filepath, char **lines);
+void				free_lines(char **lines);
 void				free_super_grid(char **grid);
 void				reset_grid(char **grid);
 int					minimal_grid_size(int n);
 
-int					has_at_least_one_piece(char **lines);
+int					has_at_least_five_lines(char **lines);
 int					valid_number_of_lines(char **lines);
-int					valid_chars(char **lines, int curr_line);
+int					valid_chars_and_empty_lines(char **lines, int curr_line);
 int					valid_width(char **lines);
 int					valid_number_of_chars(char **lines, int curr, int p, int h);
+int					valid_shapes(char **lines);
+int					number_of_neighbors(int cur_bl, int i, int j, char **lines);
 
 t_piece				*read_pieces_from_file(t_piece *pieces, char *filetext);
 t_piece				create_piece_from_block(char *blk, int p_idx, int i, int j);

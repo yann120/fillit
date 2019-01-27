@@ -6,13 +6,17 @@
 /*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 22:04:17 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/26 16:26:37 by ypetitje         ###   ########.fr       */
+/*   Updated: 2019/01/27 16:47:23 by ypetitje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char		*read_file(char *filepath, char **tab)
+/*
+** TODO: Review leaks on last line (\0)
+*/
+
+char		*read_file(char *filepath, char **lines)
 {
 	char	*line;
 	int		fd;
@@ -27,23 +31,24 @@ char		*read_file(char *filepath, char **tab)
 	filetext = (char *)malloc(sizeof(char) * (26 * 21 + 1 + 1));
 	while (get_next_line(fd, &line) > 0 && i < MAX_LINES)
 	{
-		tab[i] = ft_strdup(line);
+		lines[i] = ft_strdup(line);
 		filetext = ft_strcat(filetext, line);
 		filetext = ft_strcat(filetext, "\n");
 		free(line);
 		i++;
 	}
+	lines[i] = NULL;
 	free(line);
 	return (filetext);
 }
 
-void		free_tab(char **tab)
+void		free_lines(char **lines)
 {
 	int		i;
 
 	i = 0;
-	while (tab[i] != NULL)
-		free(tab[i++]);
+	while (lines[i] != NULL)
+		free(lines[i++]);
 }
 
 void		free_super_grid(char **grid)
