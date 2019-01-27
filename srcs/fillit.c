@@ -6,7 +6,7 @@
 /*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 22:07:37 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/27 18:21:28 by ypetitje         ###   ########.fr       */
+/*   Updated: 2019/01/27 18:31:02 by ypetitje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,10 @@ int		fit_pieces_inside_grid(char **grid, t_piece *pieces, int size, int idx)
 	piece = pieces[idx];
 	if (piece.height == 0)
 		return (1);
-	i = 0;
-	while (i < size)
+	i = -1;
+	while (++i < size && (j = -1) == -1)
 	{
-		j = 0;
-		while (j < size)
+		while (++j < size)
 		{
 			pos[0] = i;
 			pos[1] = j;
@@ -54,9 +53,7 @@ int		fit_pieces_inside_grid(char **grid, t_piece *pieces, int size, int idx)
 				else
 					remove_piece(grid, i, j, piece);
 			}
-			j++;
 		}
-		i++;
 	}
 	return (0);
 }

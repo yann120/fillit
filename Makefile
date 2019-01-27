@@ -6,7 +6,7 @@
 #    By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/10 21:44:33 by ypetitje          #+#    #+#              #
-#    Updated: 2019/01/27 18:11:24 by ypetitje         ###   ########.fr        #
+#    Updated: 2019/01/27 18:24:46 by ypetitje         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = fillit
 
 SRC = 	srcs/fillit.c srcs/get_next_line.c srcs/grid.c\
 		srcs/helper.c srcs/main.c srcs/pieces.c\
-		srcs/validation.c
+		srcs/validations_part_1.c srcs/validations_part_2.c
 
 CFLAGS = -Wall -Wextra -Werror
 
