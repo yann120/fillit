@@ -6,7 +6,7 @@
 #    By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/10 21:44:33 by ypetitje          #+#    #+#              #
-#    Updated: 2019/01/26 15:38:51 by ypetitje         ###   ########.fr        #
+#    Updated: 2019/01/27 18:11:24 by ypetitje         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,13 +45,13 @@ commit:
 	git commit -m "On avance! (ce commit a été créé automatiquement)"
 
 pull:
-	git pull 42 master
 	git pull github master
+	git pull 42 master
 
 push:
-	git push 42 master
 	git push github master
+	git push 42 master
 
-sync: pull push 
+sync: pull push
 
 .PHONY : all clean fclean re
