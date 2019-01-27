@@ -6,7 +6,7 @@
 /*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/19 18:35:03 by fwuensch          #+#    #+#             */
-/*   Updated: 2019/01/27 18:06:31 by ypetitje         ###   ########.fr       */
+/*   Updated: 2019/01/27 18:20:37 by ypetitje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,12 +74,16 @@ void		remove_piece(char **grid, int i, int j, t_piece piece)
 	}
 }
 
-int			place_piece(char **grid, t_piece piece, int i, int j, int size)
+int			place_piece(char **grid, t_piece piece, int *pos, int size)
 {
 	int		x;
 	int		j2;
 	int		i2;
+	int		i;
+	int		j;
 
+	i = pos[0];
+	j = pos[1];
 	x = 0;
 	while (x < 4)
 	{

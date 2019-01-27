@@ -6,7 +6,7 @@
 /*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/26 09:50:09 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/27 18:02:39 by ypetitje         ###   ########.fr       */
+/*   Updated: 2019/01/27 18:21:37 by ypetitje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,6 @@ void				print_grid(char **grid, int grid_size);
 char				**create_grid(void);
 void				set_piece(char **grid, int i, int j, t_piece piece);
 void				remove_piece(char **grid, int i, int j, t_piece piece);
-int					place_piece(char **grid, t_piece p, int i, int j, int s);
+int					place_piece(char **grid, t_piece p, int *pos, int s);
 
 #endif
