@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/26 09:50:09 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/27 18:29:48 by ypetitje         ###   ########.fr       */
+/*   Updated: 2019/01/30 19:33:55 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdio.h>
 # include "get_next_line.h"
 
-# define MAX_LINES 548
+# define MAX_CHARS 548
 # define GRID_MAX 30
 
 typedef	struct		s_piece {
@@ -32,7 +32,7 @@ int					file_is_valid(char **lines);
 void				print_error(int error_number);
 void				free_stuff(char *filetext, char **lines, int print_msg);
 
-char				*read_file(char *filepath, char **lines);
+char				*read_file(char *filepath, char **lines, int i, int chrs);
 void				free_lines(char **lines);
 void				free_super_grid(char **grid);
 void				reset_grid(char **grid);

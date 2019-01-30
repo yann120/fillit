@@ -3,39 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   helper.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 22:04:17 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/27 17:28:23 by ypetitje         ###   ########.fr       */
+/*   Updated: 2019/01/30 19:32:19 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-/*
-** TODO: Review leaks on last line (\0)
-*/
-
-char		*read_file(char *filepath, char **lines)
+char		*read_file(char *filepath, char **lines, int i, int letters_read)
 {
 	char	*line;
 	int		fd;
-	int		i;
 	char	*filetext;
 
-	i = 0;
 	line = NULL;
-	fd = open(filepath, O_RDONLY);
-	if (fd < 0)
+	if ((fd = open(filepath, O_RDONLY)) < 0)
 		return (NULL);
-	filetext = (char *)malloc(sizeof(char) * (26 * 21 + 1 + 1));
-	while (get_next_line(fd, &line) > 0 && i < MAX_LINES)
+	filetext = (char *)malloc(sizeof(char) * MAX_CHARS);
+	while (get_next_line(fd, &line) > 0 && i < MAX_CHARS)
 	{
-		lines[i] = ft_strdup(line);
+		letters_read += ft_strlen(line);
+		if (letters_read > MAX_CHARS)
+		{
+			free(filetext);
+			filetext = NULL;
+			break ;
+		}
+		lines[i++] = ft_strdup(line);
 		filetext = ft_strcat(filetext, line);
 		filetext = ft_strcat(filetext, "\n");
 		free(line);
-		i++;
 	}
 	lines[i] = NULL;
 	free(line);

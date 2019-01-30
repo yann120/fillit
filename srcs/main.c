@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 21:53:14 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/27 18:29:02 by ypetitje         ###   ########.fr       */
+/*   Updated: 2019/01/30 19:32:29 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ void		free_stuff(char *filetext, char **lines, int print_error_msg)
 int			main(int argc, char **argv)
 {
 	char	*filetext;
-	char	*lines[MAX_LINES];
+	char	*lines[MAX_CHARS];
 	t_piece	pieces[26 * 21 + 1 + 1];
 
-	filetext = read_file(argv[1], lines);
+	filetext = read_file(argv[1], lines, 0, 0);
 	if (argc == 2)
 	{
 		if (filetext != NULL && file_is_valid(lines))

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+         #
+#    By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/10 21:44:33 by ypetitje          #+#    #+#              #
-#    Updated: 2019/01/27 18:33:38 by ypetitje         ###   ########.fr        #
+#    Updated: 2019/01/30 19:37:46 by fwuensch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	make -C libft
-	gcc -o $(NAME) $(OBJ) $(LIBFT)
+	gcc $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT)
 
 clean:
 	rm -f $(OBJ)
@@ -46,10 +46,12 @@ commit:
 
 pull:
 	git pull github master
+	git pull retry1 master
 	git pull 42 master
 
 push:
 	git push github master
+	git push retry1 master
 	git push 42 master
 
 sync: pull push
