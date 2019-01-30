@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validations_part_2.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 18:22:49 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/27 18:28:55 by ypetitje         ###   ########.fr       */
+/*   Updated: 2019/01/30 20:04:32 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,10 @@ int			number_of_neighbors(int curr_block, int i, int j, char **lines)
 	if (i + 1 <= 3 && lines[curr_block * 5 + i + 1][j] == '#')
 		number_of_neighbors++;
 	return (number_of_neighbors);
+}
+
+void		free_lines_and_print_error(char **lines)
+{
+	print_error(0);
+	free_lines(lines);
 }

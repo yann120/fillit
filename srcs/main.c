@@ -6,7 +6,7 @@
 /*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 21:53:14 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/30 19:58:39 by fwuensch         ###   ########.fr       */
+/*   Updated: 2019/01/30 20:04:29 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,13 @@ void		free_stuff(char *filetext, char **lines, int print_error_msg)
 	free_lines(lines);
 }
 
+void		run_program(t_piece *pieces, char *filetext, char **lines)
+{
+	read_pieces_from_file(pieces, filetext);
+	fillit(pieces);
+	free_stuff(filetext, lines, 0);
+}
+
 int			main(int argc, char **argv)
 {
 	char	*filetext;
@@ -51,22 +58,13 @@ int			main(int argc, char **argv)
 	if (argc == 2)
 	{
 		if (filetext != NULL && file_is_valid(lines))
-		{
-			read_pieces_from_file(pieces, filetext);
-			fillit(pieces);
-			free_stuff(filetext, lines, 0);
-		}
+			run_program(pieces, filetext, lines);
 		else
 		{
 			if (filetext == NULL)
-			{
 				print_error(0);
-			}
 			else if (filetext[0] == '\0')
-			{
-				print_error(0);
-				free_lines(lines);
-			}
+				free_lines_and_print_error(lines);
 			else
 				free_stuff(filetext, lines, 1);
 			return (-1);

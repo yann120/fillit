@@ -6,7 +6,7 @@
 /*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/26 09:50:09 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/30 19:33:55 by fwuensch         ###   ########.fr       */
+/*   Updated: 2019/01/30 20:04:46 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ typedef	struct		s_piece {
 
 int					file_is_valid(char **lines);
 void				print_error(int error_number);
+void				run_program(t_piece *pieces, char *filetext, char **lines);
+void				free_lines_and_print_error(char **lines);
 void				free_stuff(char *filetext, char **lines, int print_msg);
 
 char				*read_file(char *filepath, char **lines, int i, int chrs);
