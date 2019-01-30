@@ -6,7 +6,7 @@
 /*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 22:04:17 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/30 19:32:19 by fwuensch         ###   ########.fr       */
+/*   Updated: 2019/01/30 19:58:46 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ char		*read_file(char *filepath, char **lines, int i, int letters_read)
 		if (letters_read > MAX_CHARS)
 		{
 			free(filetext);
-			filetext = NULL;
-			break ;
+			free(line);
+			return ("\0");
 		}
 		lines[i++] = ft_strdup(line);
 		filetext = ft_strcat(filetext, line);

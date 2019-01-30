@@ -6,7 +6,7 @@
 /*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 21:53:14 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/30 19:32:29 by fwuensch         ###   ########.fr       */
+/*   Updated: 2019/01/30 19:58:39 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,14 @@ int			main(int argc, char **argv)
 		else
 		{
 			if (filetext == NULL)
+			{
 				print_error(0);
+			}
+			else if (filetext[0] == '\0')
+			{
+				print_error(0);
+				free_lines(lines);
+			}
 			else
 				free_stuff(filetext, lines, 1);
 			return (-1);
