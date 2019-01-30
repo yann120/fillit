@@ -6,7 +6,7 @@
 #    By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/10 21:44:33 by ypetitje          #+#    #+#              #
-#    Updated: 2019/01/30 19:37:46 by fwuensch         ###   ########.fr        #
+#    Updated: 2019/01/30 19:41:53 by fwuensch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,14 +44,16 @@ commit:
 	git add .
 	git commit -m "On avance! (ce commit a été créé automatiquement)"
 
+addremotes:
+	git remote add github git@github.com:yann120/fillit.git
+	git remote add 42 vogsphere@vogsphere.42.fr:intra/2019/activities/fillit/fwuensch2
+
 pull:
 	git pull github master
-	git pull retry1 master
 	git pull 42 master
 
 push:
 	git push github master
-	git push retry1 master
 	git push 42 master
 
 sync: pull push
