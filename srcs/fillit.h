@@ -6,7 +6,7 @@
 /*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/26 09:50:09 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/30 20:04:46 by fwuensch         ###   ########.fr       */
+/*   Updated: 2019/02/10 17:11:38 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include "get_next_line.h"
 
 # define MAX_CHARS 548
+# define MAX_LINES 26 * 4
 # define GRID_MAX 30
 
 typedef	struct		s_piece {

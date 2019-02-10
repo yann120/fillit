@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validations_part_1.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 22:02:28 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/27 18:25:31 by ypetitje         ###   ########.fr       */
+/*   Updated: 2019/02/10 17:37:25 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int			valid_number_of_chars(char **lines, int curr_line, int p, int h)
 	i = 1;
 	while (lines[curr_line])
 	{
-		if (i % 5 == 0 || (j = 0) == 1)
+		if ((j = 0) == 1 || i % 5 == 0)
 		{
 			h = 0;
 			p = 0;
