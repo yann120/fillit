@@ -6,7 +6,7 @@
 /*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/26 09:50:09 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/02/10 17:11:38 by fwuensch         ###   ########.fr       */
+/*   Updated: 2019/02/10 19:41:04 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 # include "get_next_line.h"
 
 # define MAX_CHARS 548
-# define MAX_LINES 26 * 4
+# define MAX_PIECES 26
+# define MAX_LINES MAX_PIECES * 5
 # define GRID_MAX 30
 
 typedef	struct		s_piece {
@@ -49,14 +50,13 @@ int					valid_number_of_chars(char **lines, int curr, int p, int h);
 int					valid_shapes(char **lines, int i, int j, int b);
 int					number_of_neighbors(int cur_bl, int i, int j, char **lines);
 
-t_piece				*read_pieces_from_file(t_piece *pieces, char *filetext);
+int					read_pieces_from_file(t_piece *pieces, char *filetext);
 t_piece				create_piece_from_block(char *blk, int p_idx, int i, int j);
 int					calculate_height(t_piece piece);
 int					calculate_width(t_piece piece);
-int					count_pieces(t_piece *pieces);
 
-void				fillit(t_piece *pieces);
-int					fit_pieces_inside_grid(char **gd, t_piece *p, int s, int i);
+void				fillit(t_piece *pieces, int nb_pieces);
+int					fit_pieces_inside_grid(char **gd, t_piece *p, int s, int i, int nb_pieces);
 
 void				print_grid(char **grid, int grid_size);
 char				**create_grid(void);

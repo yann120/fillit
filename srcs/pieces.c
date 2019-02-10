@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   pieces.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/19 17:00:03 by fwuensch          #+#    #+#             */
-/*   Updated: 2019/01/26 16:26:41 by ypetitje         ###   ########.fr       */
+/*   Updated: 2019/02/10 19:06:09 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-t_piece		*read_pieces_from_file(t_piece *pieces, char *filetext)
+int		read_pieces_from_file(t_piece *pieces, char *filetext)
 {
 	int		i;
 	int		piece_index;
@@ -37,7 +37,7 @@ t_piece		*read_pieces_from_file(t_piece *pieces, char *filetext)
 		pieces[i] = create_piece_from_block(blocks[i], i, -1, 0);
 		i++;
 	}
-	return (pieces);
+	return (piece_index + 1);
 }
 
 t_piece		create_piece_from_block(char *block, int piece_index, int i, int j)
@@ -52,7 +52,7 @@ t_piece		create_piece_from_block(char *block, int piece_index, int i, int j)
 	while (++i < 4)
 	{
 		j = -1;
-		while (j < 4)
+		while (j < 3)
 		{
 			if (block[i * 5 + ++j] == '#')
 			{
@@ -106,16 +106,4 @@ int			calculate_width(t_piece piece)
 		i++;
 	}
 	return (max - min + 1);
-}
-
-int			count_pieces(t_piece *pieces)
-{
-	int		i;
-
-	i = 0;
-	while (pieces[i].height != 0)
-	{
-		i++;
-	}
-	return (i);
 }

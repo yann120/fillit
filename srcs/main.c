@@ -6,7 +6,7 @@
 /*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 21:53:14 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/02/10 16:46:39 by fwuensch         ###   ########.fr       */
+/*   Updated: 2019/02/10 20:13:02 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,17 +43,17 @@ void		free_stuff(char *filetext, char **lines, int print_error_msg)
 
 void		run_program(t_piece *pieces, char *filetext, char **lines)
 {
-	read_pieces_from_file(pieces, filetext);
-	fillit(pieces);
+	fillit(pieces, read_pieces_from_file(pieces, filetext));
 	free_stuff(filetext, lines, 0);
 }
 
 int			main(int argc, char **argv)
 {
 	char	*filetext;
-	char	*lines[MAX_CHARS];
-	t_piece	pieces[26 * 21 + 1 + 1];
+	char	*lines[MAX_LINES + 1];
+	t_piece	pieces[MAX_PIECES + 1];
 
+	ft_bzero(lines, MAX_LINES + 1);
 	filetext = read_file(argv[1], lines, 0, 0);
 	if (argc == 2)
 	{

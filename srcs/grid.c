@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   grid.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/19 18:35:03 by fwuensch          #+#    #+#             */
-/*   Updated: 2019/01/27 18:20:37 by ypetitje         ###   ########.fr       */
+/*   Updated: 2019/02/10 19:09:19 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,7 @@ char		**create_grid(void)
 	char	**grid;
 	int		i;
 
-	grid = (char**)malloc(sizeof(char*) * GRID_MAX);
-	if (grid == NULL)
+	if ((grid = (char**)malloc(sizeof(char*) * GRID_MAX)) == NULL)
 		return (NULL);
 	i = 0;
 	while (i < GRID_MAX)

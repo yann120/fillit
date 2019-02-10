@@ -6,7 +6,7 @@
 /*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 22:04:17 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/02/10 18:20:04 by fwuensch         ###   ########.fr       */
+/*   Updated: 2019/02/10 20:34:15 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ char		*read_file(char *filepath, char **lines, int i, int letters_read)
 	line = NULL;
 	if ((fd = open(filepath, O_RDONLY)) < 0)
 		return (NULL);
-	filetext = (char *)malloc(sizeof(char) * MAX_CHARS);
+	if ((filetext = (char *)malloc(sizeof(char) * MAX_CHARS)) == NULL)
+		return (NULL);
 	ft_bzero(filetext, MAX_CHARS);
 	while ((gnl = get_next_line(fd, &line) > 0) && i < MAX_LINES)
 	{

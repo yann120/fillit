@@ -6,7 +6,7 @@
 /*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 18:22:49 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/30 20:04:32 by fwuensch         ###   ########.fr       */
+/*   Updated: 2019/02/10 20:12:32 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int			valid_shapes(char **lines, int i, int j, int curr_block)
 {
 	int hashtag_with_two_neighbors;
 
-	while (lines[curr_block * 5] != NULL && (i = 0) == 0)
+	while (curr_block < MAX_PIECES && lines[curr_block * 5] != 0 && (i = 0) == 0)
 	{
 		hashtag_with_two_neighbors = 0;
 		while (i < 4 && (j = 0) == 0)
