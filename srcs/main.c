@@ -6,7 +6,7 @@
 /*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 21:53:14 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/01/30 20:04:29 by fwuensch         ###   ########.fr       */
+/*   Updated: 2019/02/10 16:46:39 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int			main(int argc, char **argv)
 	filetext = read_file(argv[1], lines, 0, 0);
 	if (argc == 2)
 	{
-		if (filetext != NULL && file_is_valid(lines))
+		if (filetext != NULL && filetext[0] != '\0' && file_is_valid(lines))
 			run_program(pieces, filetext, lines);
 		else
 		{
