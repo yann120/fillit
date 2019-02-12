@@ -6,16 +6,14 @@
 /*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/26 09:50:09 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/02/12 13:43:19 by ypetitje         ###   ########.fr       */
+/*   Updated: 2019/02/12 17:16:05 by ypetitje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
 # include <stdlib.h>
-# include <unistd.h>
 # include <fcntl.h>
-# include <stdio.h>
 # include "get_next_line.h"
 
 # define MAX_CHARS 548
