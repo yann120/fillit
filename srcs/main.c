@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 21:53:14 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/02/10 20:13:02 by fwuensch         ###   ########.fr       */
+/*   Updated: 2019/02/12 13:10:49 by ypetitje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int			main(int argc, char **argv)
 {
 	char	*filetext;
 	char	*lines[MAX_LINES + 1];
-	t_piece	pieces[MAX_PIECES + 1];
+	t_piece	pieces[MAX_PIEC + 1];
 
 	ft_bzero(lines, MAX_LINES + 1);
 	filetext = read_file(argv[1], lines, 0, 0);

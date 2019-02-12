@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   pieces.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/19 17:00:03 by fwuensch          #+#    #+#             */
-/*   Updated: 2019/02/10 19:06:09 by fwuensch         ###   ########.fr       */
+/*   Updated: 2019/02/12 13:08:08 by ypetitje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		read_pieces_from_file(t_piece *pieces, char *filetext)
+int			read_pieces_from_file(t_piece *pieces, char *filetext)
 {
 	int		i;
 	int		piece_index;
@@ -106,4 +106,14 @@ int			calculate_width(t_piece piece)
 		i++;
 	}
 	return (max - min + 1);
+}
+
+int			count_pieces(t_piece *pieces)
+{
+	int		i;
+
+	i = 0;
+	while (pieces[i].letter)
+		i++;
+	return (i);
 }

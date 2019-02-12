@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/26 09:50:09 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/02/10 19:41:04 by fwuensch         ###   ########.fr       */
+/*   Updated: 2019/02/12 13:43:19 by ypetitje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # include "get_next_line.h"
 
 # define MAX_CHARS 548
-# define MAX_PIECES 26
-# define MAX_LINES MAX_PIECES * 5
+# define MAX_PIEC 26
+# define MAX_LINES MAX_PIEC * 5
 # define GRID_MAX 30
 
 typedef	struct		s_piece {
@@ -41,6 +41,7 @@ void				free_lines(char **lines);
 void				free_super_grid(char **grid);
 void				reset_grid(char **grid);
 int					minimal_grid_size(int n);
+char				*read_file_p2(char *filetext, char **lines, int i, int gnl);
 
 int					has_at_least_five_lines(char **lines);
 int					valid_number_of_lines(char **lines);
@@ -49,6 +50,7 @@ int					valid_width(char **lines);
 int					valid_number_of_chars(char **lines, int curr, int p, int h);
 int					valid_shapes(char **lines, int i, int j, int b);
 int					number_of_neighbors(int cur_bl, int i, int j, char **lines);
+char				*free_line_filetext_and_return_null(char *lin, char *filxt);
 
 int					read_pieces_from_file(t_piece *pieces, char *filetext);
 t_piece				create_piece_from_block(char *blk, int p_idx, int i, int j);
@@ -56,12 +58,13 @@ int					calculate_height(t_piece piece);
 int					calculate_width(t_piece piece);
 
 void				fillit(t_piece *pieces, int nb_pieces);
-int					fit_pieces_inside_grid(char **gd, t_piece *p, int s, int i, int nb_pieces);
+int					fit_pieces_inside_grid(char **gd, t_piece *p, int s, int i);
 
 void				print_grid(char **grid, int grid_size);
 char				**create_grid(void);
 void				set_piece(char **grid, int i, int j, t_piece piece);
 void				remove_piece(char **grid, int i, int j, t_piece piece);
 int					place_piece(char **grid, t_piece p, int *pos, int s);
+int					count_pieces(t_piece *pieces);
 
 #endif

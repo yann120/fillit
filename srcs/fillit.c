@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 22:07:37 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/02/10 20:03:57 by fwuensch         ###   ########.fr       */
+/*   Updated: 2019/02/12 13:50:31 by ypetitje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	fillit(t_piece *pieces, int nb_pieces)
 	grid_size = minimal_grid_size(nb_pieces);
 	grid = create_grid();
 	reset_grid(grid);
-	while (!fit_pieces_inside_grid(grid, pieces, grid_size, 0, nb_pieces))
+	while (!fit_pieces_inside_grid(grid, pieces, grid_size, 0))
 	{
 		grid_size += 1;
 		reset_grid(grid);
@@ -29,7 +29,7 @@ void	fillit(t_piece *pieces, int nb_pieces)
 	free_super_grid(grid);
 }
 
-int		fit_pieces_inside_grid(char **grid, t_piece *pieces, int size, int idx, int nb_pieces)
+int		fit_pieces_inside_grid(char **grid, t_piece *pieces, int size, int idx)
 {
 	int		i;
 	int		j;
@@ -37,7 +37,7 @@ int		fit_pieces_inside_grid(char **grid, t_piece *pieces, int size, int idx, int
 	t_piece piece;
 
 	piece = pieces[idx];
-	if (idx >= nb_pieces)
+	if (idx >= count_pieces(pieces))
 		return (1);
 	i = -1;
 	while (++i < size && (j = -1) == -1)
@@ -48,7 +48,7 @@ int		fit_pieces_inside_grid(char **grid, t_piece *pieces, int size, int idx, int
 			pos[1] = j;
 			if (place_piece(grid, piece, pos, size))
 			{
-				if (fit_pieces_inside_grid(grid, pieces, size, idx + 1, nb_pieces))
+				if (fit_pieces_inside_grid(grid, pieces, size, idx + 1))
 					return (1);
 				else
 					remove_piece(grid, i, j, piece);

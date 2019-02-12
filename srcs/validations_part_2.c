@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validations_part_2.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 18:22:49 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/02/10 20:12:32 by fwuensch         ###   ########.fr       */
+/*   Updated: 2019/02/12 13:42:58 by ypetitje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int			valid_shapes(char **lines, int i, int j, int curr_block)
 {
 	int hashtag_with_two_neighbors;
 
-	while (curr_block < MAX_PIECES && lines[curr_block * 5] != 0 && (i = 0) == 0)
+	while (curr_block < MAX_PIEC && lines[curr_block * 5] != 0 && (i = 0) == 0)
 	{
 		hashtag_with_two_neighbors = 0;
 		while (i < 4 && (j = 0) == 0)
@@ -61,4 +61,24 @@ void		free_lines_and_print_error(char **lines)
 {
 	print_error(0);
 	free_lines(lines);
+}
+
+char		*free_line_filetext_and_return_null(char *line, char *filetext)
+{
+	free(filetext);
+	free(line);
+	return ("\0");
+}
+
+char		*read_file_p2(char *filetext, char **lines, int i, int gnl)
+{
+	lines[i] = NULL;
+	if (i == 0 || gnl > 0)
+	{
+		free(filetext);
+		if (gnl > 0)
+			return ("\0");
+		return (NULL);
+	}
+	return (filetext);
 }

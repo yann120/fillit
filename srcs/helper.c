@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   helper.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 22:04:17 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/02/10 20:34:15 by fwuensch         ###   ########.fr       */
+/*   Updated: 2019/02/12 13:42:36 by ypetitje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,26 +29,14 @@ char		*read_file(char *filepath, char **lines, int i, int letters_read)
 	{
 		letters_read += ft_strlen(line);
 		if (letters_read > MAX_CHARS)
-		{
-			free(filetext);
-			free(line);
-			return ("\0");
-		}
+			return (free_line_filetext_and_return_null(line, filetext));
 		lines[i++] = ft_strdup(line);
 		filetext = ft_strcat(filetext, line);
 		filetext = ft_strcat(filetext, "\n");
 		free(line);
 	}
 	free(line);
-	lines[i] = NULL;
-	if (i == 0 || gnl > 0)
-	{
-		free(filetext);
-		if (gnl > 0)
-			return ("\0");
-		return (NULL);
-	}
-	return (filetext);
+	return (read_file_p2(filetext, lines, i, gnl));
 }
 
 void		free_lines(char **lines)
