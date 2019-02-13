@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ypetitje <ypetitje@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/26 09:50:09 by ypetitje          #+#    #+#             */
-/*   Updated: 2019/02/12 17:16:05 by ypetitje         ###   ########.fr       */
+/*   Updated: 2019/02/13 15:01:59 by fwuensch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
-# include <stdlib.h>
 # include <fcntl.h>
 # include "get_next_line.h"
 
